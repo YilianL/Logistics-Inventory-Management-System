@@ -10,7 +10,7 @@ import lombok.*;
 public class Operator {
 
     @Id
-    private String operatorId;
+    private Long operatorId;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -18,5 +18,5 @@ public class Operator {
     @Column(nullable = false)
     private String password;
 
-    private String role;
+    private String Role;
 }

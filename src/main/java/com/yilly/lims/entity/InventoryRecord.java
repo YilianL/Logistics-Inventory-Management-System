@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 public class InventoryRecord {
 
     @Id
-    private String recordId;
+    private Long recordId;
 
-    private String productId;
+    private Long productId;
 
     private BigDecimal quantity;
 
@@ -28,7 +28,7 @@ public class InventoryRecord {
 
     private Boolean checkStatus;
 
-    private String operatorId;
+    private Long operatorId;
 
     private LocalDateTime operatedTime;
 }

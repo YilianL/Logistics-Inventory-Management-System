@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 public class Shipment {
 
     @Id
-    private String shipmentId;
+    private Long shipmentId;
 
-    private String sorderId;
+    private Long sorderId;
 
     @Enumerated(EnumType.STRING)
     private ShipmentStatus status;

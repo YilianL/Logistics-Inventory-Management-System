@@ -16,11 +16,11 @@ public class CustomerFeedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String feedbackID;
+    private Long feedbackID;
 
-    private String customerID;
+    private Long customerID;
 
-    private String sorderID;
+    private Long sorderID;
 
     private Integer rating;
 

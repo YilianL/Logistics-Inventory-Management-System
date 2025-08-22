@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class Product {
 
     @Id
-    private String productId; // 商品编号，主键
+    private Long productId; // 商品编号，主键
 
     private String productName; // 商品名称
 

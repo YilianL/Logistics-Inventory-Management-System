@@ -10,7 +10,7 @@ import lombok.*;
 public class Role {
 
     @Id
-    private String roleId;
+    private Long roleId;
 
     @Column(nullable = false, unique = true)
     private String roleName;

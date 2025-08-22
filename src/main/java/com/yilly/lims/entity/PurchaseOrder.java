@@ -15,7 +15,7 @@ import java.util.List;
 public class PurchaseOrder {
 
     @Id
-    private String porderId;
+    private Long porderId;
 
     private BigDecimal poPrice;
 

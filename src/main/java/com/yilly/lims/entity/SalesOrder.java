@@ -15,9 +15,9 @@ import java.util.List;
 public class SalesOrder {
 
     @Id
-    private String sorderId;
+    private Long sorderId;
 
-    private String customerId;
+    private Long customerId;
 
     private BigDecimal soPrice;
 

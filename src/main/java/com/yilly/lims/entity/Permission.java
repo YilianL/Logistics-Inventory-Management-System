@@ -10,7 +10,7 @@ import lombok.*;
 public class Permission {
 
     @Id
-    private String permissionId;
+    private Long permissionId;
 
     @Column(nullable = false, unique = true)
     private String permissionName;

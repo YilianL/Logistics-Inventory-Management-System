@@ -11,9 +11,9 @@ import java.math.BigDecimal;
 public class ShipmentCost {
 
     @Id
-    private String shipmentCostId;
+    private Long shipmentCostId;
 
-    private String shipmentId;
+    private Long shipmentId;
 
     private BigDecimal cost;
 

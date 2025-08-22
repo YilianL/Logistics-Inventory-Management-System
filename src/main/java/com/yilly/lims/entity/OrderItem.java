@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 public class OrderItem {
 
     @Id
-    private String itemId;
+    private Long itemId;
 
-    private String orderId; // 对应 SalesOrder 或 PurchaseOrder 的 ID
+    private Long orderId; // 对应 SalesOrder 或 PurchaseOrder 的 ID
 
-    private String productId;
+    private Long productId;
 
     private BigDecimal quantity;
 
