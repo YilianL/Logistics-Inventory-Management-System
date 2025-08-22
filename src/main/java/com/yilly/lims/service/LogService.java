@@ -11,11 +11,11 @@ public class LogService {
     private final OperatorLogRepository logRepo;
 
     public void log(Operator operator, String action, String resource, String details) {
-        var l = new OperatorLog();
+        var l = new OperatorLog(); //新建操作记录
         l.setOperator(operator);
         l.setAction(action);
         l.setResource(resource);
         l.setDetails(details);
-        logRepo.save(l);
+        logRepo.save(l); //存入数据库
     }
 }
