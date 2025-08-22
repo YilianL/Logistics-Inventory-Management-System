@@ -3,8 +3,6 @@ package com.yilly.lims.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,8 +15,7 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String roleName;
 
-    @ElementCollection
-    @CollectionTable(name = "role_permissions", joinColumns = @JoinColumn(name = "role_id"))
-    @Column(name = "permission")
-    private List<String> permissions;
+    @OneToOne
+    @JoinColumn(name = "permission_id")
+    private Permission permission;
 }
