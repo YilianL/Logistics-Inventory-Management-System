@@ -2,6 +2,7 @@ package com.yilly.lims.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +16,10 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String roleName;
 
-    @OneToOne
-    @JoinColumn(name = "permission_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "permission_id", referencedColumnName = "permissionId")
     private Permission permission;
+
+    @OneToMany(mappedBy = "role")
+    private List<Operator> operators;
 }

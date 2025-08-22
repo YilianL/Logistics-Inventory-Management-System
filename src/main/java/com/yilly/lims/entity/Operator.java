@@ -18,5 +18,7 @@ public class Operator {
     @Column(nullable = false)
     private String password;
 
-    private String Role;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 }
