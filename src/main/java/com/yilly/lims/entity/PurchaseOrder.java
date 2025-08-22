@@ -15,7 +15,8 @@ import java.util.List;
 public class PurchaseOrder {
 
     @Id
-    private Long porderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long porderID;
 
     private BigDecimal poPrice;
 
@@ -24,6 +25,6 @@ public class PurchaseOrder {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @Transient // 不直接用 ORM 映射
-    private List<OrderItem> poItem; // 需要通过 service 查询对应 orderId
+    @OneToMany(mappedBy = "purchaseOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PurchaseOrderItem> items;
 }

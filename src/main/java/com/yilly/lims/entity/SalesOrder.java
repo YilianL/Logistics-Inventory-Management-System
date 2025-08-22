@@ -15,9 +15,12 @@ import java.util.List;
 public class SalesOrder {
 
     @Id
-    private Long sorderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long sorderID;
 
-    private Long customerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
     private BigDecimal soPrice;
 
@@ -26,6 +29,10 @@ public class SalesOrder {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @Transient
-    private List<OrderItem> soItem;
+    @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SalesOrderItem> items;
+
+    @OneToOne(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private CustomerFeedback feedback;
+
 }

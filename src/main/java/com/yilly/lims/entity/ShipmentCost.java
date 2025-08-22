@@ -13,9 +13,11 @@ public class ShipmentCost {
     @Id
     private Long shipmentCostId;
 
-    private Long shipmentId;
-
     private BigDecimal cost;
 
     private String costType;
+
+    @ManyToOne
+    @JoinColumn(name = "shipment_id")
+    private Shipment shipment;
 }

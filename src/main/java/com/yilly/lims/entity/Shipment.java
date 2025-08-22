@@ -4,6 +4,7 @@ import com.yilly.lims.enums.ShipmentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,7 +15,9 @@ public class Shipment {
     @Id
     private Long shipmentId;
 
-    private Long sorderId;
+    @OneToOne
+    @JoinColumn(name = "sorder_id", referencedColumnName = "sorderId")
+    private SalesOrder salesOrder;
 
     @Enumerated(EnumType.STRING)
     private ShipmentStatus status;
@@ -28,4 +31,7 @@ public class Shipment {
     private LocalDateTime estimatedArrival;
 
     private LocalDateTime lastUpdated;
+
+    @OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ShipmentCost> shipmentCosts;
 }

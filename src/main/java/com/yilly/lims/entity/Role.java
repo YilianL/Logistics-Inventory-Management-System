@@ -11,7 +11,7 @@ import java.util.List;
 public class Role {
 
     @Id
-    private Long roleId;
+    private Long roleID;
 
     @Column(nullable = false, unique = true)
     private String roleName;

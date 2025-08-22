@@ -14,9 +14,12 @@ import java.time.LocalDateTime;
 public class InventoryRecord {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recordId;
 
-    private Long productId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
     private BigDecimal quantity;
 
@@ -28,7 +31,9 @@ public class InventoryRecord {
 
     private Boolean checkStatus;
 
-    private Long operatorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "operator_id", nullable = false)
+    private Operator operator;
 
     private LocalDateTime operatedTime;
 }

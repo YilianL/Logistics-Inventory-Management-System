@@ -18,9 +18,13 @@ public class CustomerFeedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long feedbackID;
 
-    private Long customerID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
-    private Long sorderID;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sorder_id", unique = true, nullable = false)
+    private SalesOrder salesOrder;
 
     private Integer rating;
 
