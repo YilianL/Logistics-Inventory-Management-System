@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Component
-public class JWTUtil {
+public class JwtUtil {
     // ⚠️ 替换为安全的32+字节密钥（建议放配置）
     private final Key key = Keys.hmacShaKeyFor("CHANGE_THIS_TO_A_32+_BYTE_SECRET_KEY_123456".getBytes());
     private final long EXP_MS = 1000L * 60 * 60 * 12;

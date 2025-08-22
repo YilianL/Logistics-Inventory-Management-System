@@ -1,6 +1,5 @@
 package com.yilly.lims.controller;
 
-import com.yilly.lims.security.JWTUtil;
 import com.yilly.lims.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

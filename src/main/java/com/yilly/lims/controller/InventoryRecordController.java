@@ -100,7 +100,7 @@ public class InventoryRecordController implements InventoryRecordService {
     }
 
     private InventoryRecord getByIdAndTypeOr404(Long recordID, InventoryType type) {
-        return inventoryRecordRepository.findByIdAndType(recordID, type)
+        return inventoryRecordRepository.findByRecordIDAndType(recordID, type)
                 .orElseThrow(() -> notFound("InventoryRecord", recordID));
     }
 

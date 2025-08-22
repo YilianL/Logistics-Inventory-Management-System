@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface InventoryRecordRepository extends JpaRepository<InventoryRecord, Long> {
-    Optional<InventoryRecord> findByIdAndType(Long recordID, InventoryType type);
+    Optional<InventoryRecord> findByRecordIDAndType(Long recordID, InventoryType type);
 }
