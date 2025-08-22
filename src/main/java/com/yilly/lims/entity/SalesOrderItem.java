@@ -7,6 +7,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "sales_order_item")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,7 +15,7 @@ public class SalesOrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String itemID;
+    private Long itemID;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sorder_id")
