@@ -1,48 +1,51 @@
 package com.yilly.lims.service;
 
 import com.yilly.lims.entity.InventoryRecord;
-import com.yilly.lims.repository.InventoryRecordRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.yilly.lims.enums.InventoryType;
+import com.yilly.lims.enums.Unit;
 
-import java.util.List;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-@Service
-public class InventoryRecordService {
+public interface InventoryRecordService {
 
-    private final InventoryRecordRepository inventoryRecordRepository;
+    // Inbound
+    Long createInbound(Long productID,
+                       BigDecimal quantity,
+                       Unit unit,
+                       Boolean check,
+                       Long operatorID,
+                       LocalDateTime operatedTime);
 
-    @Autowired
-    public InventoryRecordService(InventoryRecordRepository inventoryRecordRepository) {
-        this.inventoryRecordRepository = inventoryRecordRepository;
-    }
+    InventoryRecord getInbound(Long recordID);
 
-    public InventoryRecord createRecord(InventoryRecord record) {
-        return inventoryRecordRepository.save(record);
-    }
+    void updateInbound(Long recordID,
+                       Long productID,
+                       BigDecimal quantity,
+                       Unit unit,
+                       Boolean check,
+                       Long operatorID,
+                       LocalDateTime operatedTime);
 
-    public List<InventoryRecord> getAllRecords() {
-        return inventoryRecordRepository.findAll();
-    }
+    void deleteInbound(Long recordID);
 
-    public Optional<InventoryRecord> getRecordById(Long id) {
-        return inventoryRecordRepository.findById(id);
-    }
+    // Outbound
+    Long createOutbound(Long productID,
+                        BigDecimal quantity,
+                        Unit unit,
+                        Boolean check,
+                        Long operatorID,
+                        LocalDateTime operatedTime);
 
-    public void deleteRecord(Long id) {
-        inventoryRecordRepository.deleteById(id);
-    }
+    InventoryRecord getOutbound(Long recordID);
 
-    public List<InventoryRecord> getRecordsByProduct(String productId) {
-        return inventoryRecordRepository.findByProduct_ProductID(productId);
-    }
+    void updateOutbound(Long recordID,
+                        Long productID,
+                        BigDecimal quantity,
+                        Unit unit,
+                        Boolean check,
+                        Long operatorID,
+                        LocalDateTime operatedTime);
 
-    public List<InventoryRecord> getRecordsByOperator(String operatorId) {
-        return inventoryRecordRepository.findByOperator_OperatorID(operatorId);
-    }
-
-    public List<InventoryRecord> getRecordsByCheckStatus(Boolean status) {
-        return inventoryRecordRepository.findByCheckStatus(status);
-    }
+    void deleteOutbound(Long recordID);
 }

@@ -1,17 +1,11 @@
 package com.yilly.lims.repository;
 
 import com.yilly.lims.entity.InventoryRecord;
+import com.yilly.lims.enums.InventoryType;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
-@Repository
 public interface InventoryRecordRepository extends JpaRepository<InventoryRecord, Long> {
-
-    List<InventoryRecord> findByProduct_ProductID(String productId);
-
-    List<InventoryRecord> findByOperator_OperatorID(String operatorId);
-
-    List<InventoryRecord> findByCheckStatus(Boolean checkStatus);
+    Optional<InventoryRecord> findByIdAndType(Long recordID, InventoryType type);
 }
