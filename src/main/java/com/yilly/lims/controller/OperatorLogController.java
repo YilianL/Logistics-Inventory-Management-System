@@ -11,7 +11,7 @@ public class OperatorLogController {
 
     private final OperatorLogRepository logRepo;
 
-    // 简单全量查询（可扩展为按操作者/时间/动作查询）
+    // 简单全部操作日志
     @GetMapping
     public ResponseEntity<?> list() {
         return ResponseEntity.ok(logRepo.findAll());

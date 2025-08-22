@@ -21,11 +21,12 @@ public class AuthController {
         }
     }
 
-    // 用户登出（简易黑名单）
+    // 用户登出
     @PostMapping("/logout")
     public ResponseEntity<?> logout(@RequestParam String actor, @RequestBody Map<String, String> body) {
         String token = body.get("token");
-        if (token == null || token.isBlank()) return ResponseEntity.status(401).body(Map.of("message","Unauthorized"));
+        if (token == null || token.isBlank())
+            return ResponseEntity.status(401).body(Map.of("message","Unauthorized"));
         return ResponseEntity.ok(auth.logout(token, actor));
     }
 }

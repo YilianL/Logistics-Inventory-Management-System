@@ -17,8 +17,10 @@ public class PermissionController {
 
     // 创立权限
     @PostMapping
-    public ResponseEntity<?> create(@RequestParam String actor, @RequestBody Map<String, String> body) {
-        Operator op = operatorRepo.findByUsername(actor).orElse(null);
+    public ResponseEntity<?> create(@RequestParam String name, @RequestBody Map<String, String> body) {
+        //定位
+        Operator op = operatorRepo.findByUsername(name).orElse(null);
+        //创立权限
         var p = permissionService.createPermission(
                 op,
                 body.get("permissionName"),
